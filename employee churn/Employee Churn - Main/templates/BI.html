@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workforce Data Analysis</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+        .header {
+            width: 100%;
+            background-color: #007BFF;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .header h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .content {
+            padding: 20px;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .iframe-container {
+            width: 100%;
+            height: 100%;
+            max-width: 1200px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        .iframe-container iframe {
+            width: 100%;
+            height: calc(100vh - 80px);
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Workforce Data Analysis</h1>
+    </div>
+    <div class="content">
+        <div class="iframe-container">
+            <iframe title="employee dashboard" src="https://app.powerbi.com/view?r=eyJrIjoiNDY0YTQxMjUtMDhlNy00NGZmLTkxMDgtNWI3YzMwNjFmZDc4IiwidCI6IjYzZmYzZjIzLTE1ZjgtNDY3ZS1iM2RmLTM1NzliYTVkYzQxZSJ9" allowFullScreen="true"></iframe>
+        </div>
+    </div>
+</body>
+</html>

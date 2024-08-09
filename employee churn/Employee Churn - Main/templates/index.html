@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Churn Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            background-image: url('{{ url_for('static', filename='images/pexels-andrew-8960464.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+        .logo {
+            width: 4cm;
+            height: 4cm;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .left-column, .right-column {
+            width: 48%;
+        }
+        .form-group label {
+            width: 100%;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: left;
+            display: block;
+        }
+        .form-group input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .form-group input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            margin-top: 20px;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .button-container button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .button-container button:hover {
+            background-color: #218838;
+        }
+        .dashboard-btn {
+            background-color: #17a2b8;
+        }
+        .dashboard-btn:hover {
+            background-color: #138496;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Churn Prediction</h1>
+        <form action="/predict" method="post" class="prediction-form">
+            <div class="form-group">
+                <div class="left-column">
+                    <div class="box">
+                        <label for="satisfaction_level">Satisfaction Level</label>
+                        <input type="text" id="satisfaction_level" name="satisfaction_level" required>
+                    </div>
+
+                    <div class="box">
+                        <label for="last_evaluation">Last Evaluation</label>
+                        <input type="text" id="last_evaluation" name="last_evaluation" required>
+                    </div>
+
+                    <div class="box">
+                        <label for="number_project">Number of Projects</label>
+                        <input type="text" id="number_project" name="number_project" required>
+                    </div>
+
+                    <div class="box">
+                        <label for="average_montly_hours">Average Monthly Hours</label>
+                        <input type="text" id="average_montly_hours" name="average_montly_hours" required>
+                    </div>
+                </div>
+                <div class="right-column">
+                    <div class="box">
+                        <label for="time_spend_company">Time Spent at Company (years)</label>
+                        <input type="text" id="time_spend_company" name="time_spend_company" required>
+                    </div>
+
+                    <div class="box">
+                        <label for="work_accident">Work Accident (0 or 1)</label>
+                        <input type="text" id="work_accident" name="work_accident" required>
+                    </div>
+
+                    <div class="box">
+                        <label for="promotion_last_5years">Promotion in Last 5 Years (0 or 1)</label>
+                        <input type="text" id="promotion_last_5years" name="promotion_last_5years" required>
+                    </div>
+
+                    <div class="box">
+                        <label for="salary">Salary (1: low, 2: medium, 3: high)</label>
+                        <input type="text" id="salary" name="salary" required>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" value="Predict">
+        </form>
+        {% if prediction is not none %}
+            <div class="output">
+                <h2>Prediction: {{ 'Employee will leave the company' if prediction == 1 else 'Employee will not leave the company' }}</h2>
+            </div>
+        {% endif %}
+        <div class="button-container">
+            <button class="get-info-btn" onclick="location.href='/employee_info'">Get Employee Info</button>
+            <button class="dashboard-btn" onclick="location.href='/BI.html'">Employee Dashboard</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workforce Churn Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .navbar {
+            margin-bottom: 0;
+        }
+        .navbar-brand {
+            font-size: 1.8em;
+            transition: background-color 0.3s ease, font-size 0.3s ease;
+            color: lightblue;
+        }
+        .navbar-brand:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            font-size: 1.9em;
+        }
+        .navbar-nav a {
+            color: lightblue;
+            font-size: 1.2em;
+            margin: 10px;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, font-size 0.3s ease;
+        }
+        .navbar-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            font-size: 1.3em;
+        }
+        .navbar-toggler {
+            border: none;
+        }
+        .navbar-toggler:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+        .hero {
+            background: url('/static/images/pexels-heyho-6794934.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+        .hero p, .hero .quote {
+            font-size: 2em;
+            margin-bottom: 20px;
+            max-width: 50%;
+            transition: color 0.3s ease, font-size 0.3s ease, background-color 0.3s ease;
+            padding: 10px;
+        }
+        .hero p:hover, .hero .quote:hover {
+            color: lightblue;
+            font-size: 2.2em;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .hero .quote {
+            font-size: 1.5em;
+        }
+        .hero .quote:hover {
+            font-size: 1.7em;
+        }
+        .text-container {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">Keeping Your Team Intact</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/predict">Prediction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/employee_info">Employee Info</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/BI.html">Dashboard</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="text-container">
+            <p>Employee retention is crucial for maintaining organizational stability and fostering a positive work environment.</p>
+            <p class="quote">"Take care of your employees and they will take care of your business. It's as simple as that." – Richard Branson</p>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
